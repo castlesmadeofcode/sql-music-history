@@ -21,9 +21,9 @@ INSERT INTO Song(Title, SongLength, ReleaseDate, GenreId, ArtistId, AlbumId)
 VALUES("Waiting for My Ruca", 197, '01/01/1993', 9, 28, 23)
 
 -- Write a SELECT query that provides the song titles, album title, 
-and artist name for all of
--- the data you just entered in. Use the LEFT JOIN keyword sequence to connect the tables,
--- and the WHERE keyword to filter the results to the album and artist you added.
+-- and artist name for all of the data you just entered in. Use the LEFT JOIN keyword 
+-- sequence to connect the tables,and the WHERE keyword to filter the results to the 
+-- album and artist you added.
 SELECT a.Title, s.Title FROM Album a LEFT JOIN Song s ON s.AlbumId = a.AlbumId 
 WHERE a.AlbumId = 23;
 
