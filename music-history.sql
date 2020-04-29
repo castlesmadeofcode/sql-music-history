@@ -22,9 +22,11 @@ VALUES("Waiting for My Ruca", 197, '01/01/1993', 9, 28, 23)
 
 -- Write a SELECT query that provides the song titles, album title, 
 -- and artist name for all of the data you just entered in. Use the LEFT JOIN keyword 
--- sequence to connect the tables,and the WHERE keyword to filter the results to the 
--- album and artist you added.
-SELECT a.Title, s.Title FROM Album a LEFT JOIN Song s ON s.AlbumId = a.AlbumId 
+-- sequence to connect the tables,and the WHERE keyword to filter the results to the album and artist you added.
+SELECT a.Title, s.Title, ar.ArtistName
+FROM Song s
+LEFT JOIN Album a ON s.AlbumId = a.AlbumId 
+LEFT JOIN Artist ar ON s.ArtistId = ar.ArtistId
 WHERE a.AlbumId = 23;
 
 -- Write a SELECT statement to display how many songs exist for each album.
@@ -55,8 +57,7 @@ SELECT Title, MAX(SongLength) FROM Song;
 
 -- Modify the previous query to also display the title of the album.
 SELECT Album.Title AS AlbumTitle, Song.Title AS SongTitle, MAX(SongLength) FROM Song LEFT JOIN Album
-ON Song.AlbumId = Album.AlbumId
-;
+ON Song.AlbumId = Album.AlbumId;
 
 
 
